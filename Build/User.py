@@ -1,3 +1,10 @@
+import os
+import sys
+from typing import List
+from FlightManager import FlightManager
+from Flight import Flight
+from User import User
+from UserManager import UserManager
 class User:
     def __init__(self,name_:str,email_:str,password_:str,cpf_:int,credit_card:int,tickets_)->None:
             self.name_ = name_

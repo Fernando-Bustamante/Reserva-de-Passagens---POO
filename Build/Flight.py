@@ -1,3 +1,7 @@
+import sys
+import os
+from FlightManager import FlightManager
+from Flight import Flight
 class Flight:
     def __init__(self):
         self.destination = {"city": "", "country": ""}

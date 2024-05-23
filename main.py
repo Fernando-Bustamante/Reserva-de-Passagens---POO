@@ -36,8 +36,7 @@ def main():
             Sistema.showFlights()
 
         elif choice == 2:
-            starter = User()
-            usuario = starter
+            usuario = None
             login_choice = bool(int(input("Escolha se quer logar(1) ou cadastrar uma nova conta(0): ")))
             if login_choice:  # LOGIN
                 while True:
@@ -59,18 +58,14 @@ def main():
                 while True:
                     name = input("Digite o nome: ")
                     if SistemadeUsuario.validName(name):
-                        usuario.addName(name)
                         break
                     else:
                         print("Nome de usuário inválido.")
                 cpf = int(input("Adicione o CPF: "))
-                usuario.addCpf(cpf)
                 email = input("Digite um e-mail: ")
-                usuario.addEmail(email)
                 password = input("Digite sua senha: ")
-                usuario.addPassword(password)
                 cc = int(input("Digite o número do cartão de crédito: "))
-                usuario.addCredit_Card(cc)
+                usuario = User(name, email, password, cpf, cc, [])  # Criando um novo usuário com os dados fornecidos
                 SistemadeUsuario.addUser(usuario)
                 usuario = SistemadeUsuario.returnUser(name, password)
 
@@ -126,12 +121,13 @@ def main():
 
                 elif profileChoice == 0:
                     print("Voltando ao menu principal.")
-
-                else:
-                    print("Opção inválida. Tente novamente.")
+        elif choice == 0:
+            print("Saindo do programa. Obrigado!")            
+        else:
+            print("Opção inválida. Tente novamente.")
 
     SistemadeUsuario.UpdatePassenger()
-    print("Saindo do programa. Obrigado!")
+    
 
 if __name__ == "__main__":
     main()

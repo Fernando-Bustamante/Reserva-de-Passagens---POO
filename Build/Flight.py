@@ -99,3 +99,4 @@ class Flight:
 
     def flightSize(self):
         return len(self.seat)
+'''mudando'''
